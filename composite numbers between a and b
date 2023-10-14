@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class CompositeNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the starting number (a): ");
+        int a = scanner.nextInt();
+
+        System.out.print("Enter the ending number (b): ");
+        int b = scanner.nextInt();
+
+        // Loop through numbers from a to b
+        for (int num = a; num <= b; num++) {
+            boolean isPrime = true;
+            if (num <= 1) {
+                isPrime = false;
+            } else {
+                for (int i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i == 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+            }
+
+            // If the number is not prime, it's composite
+            if (!isPrime) {
+                System.out.println(num);
+            }
+        }
+
+        scanner.close();
+    }
+}
